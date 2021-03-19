@@ -13,4 +13,5 @@ The users is able to:
   <li>Toggle the color scheme between light and dark mode</li>
 </ul>
 
+Click <a href="https://rest-countries-api-joaovitoroli.vercel.app" target="_blank">here</a> to see the demo.
 <img src="https://github.com/JoaoVitorOli/rest-countries/blob/master/desktop-preview.jpg"/>
