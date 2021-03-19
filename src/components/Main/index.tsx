@@ -89,14 +89,30 @@ export default function Main() {
     }
   }
 
-  async function goToDetails(e: string | null): Promise<void> {
-    setIsDetailsActivated(true);
+  async function goToDetailsFromBorder(e: string | null): Promise<void> {
+    if (e) {
+      try {
+        setCountries([]);
+        const response = await api.get<CountrieTips>(`/alpha/${e}`);
+        // eslint-disable-next-line prefer-const
+        let countrie = [];
+        countrie.push(response.data);
+        console.log(countrie);
 
+        setCountries(countrie);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  }
+
+  async function goToDetails(e: string | null): Promise<void> {
     if (e) {
       try {
         const response = await api.get<CountrieTips[]>(`/name/${e}`);
         const countrie = response.data;
 
+        setIsDetailsActivated(true);
         setCountries(countrie);
       } catch (err) {
         console.error(err);
@@ -182,9 +198,13 @@ export default function Main() {
                     <BorderCountries>
                       <strong>Border Countries: </strong>
                       {borders.map((border) => (
-                        <p>
+                        <button
+                          type="button"
+                          id={border}
+                          onClick={(e) => goToDetailsFromBorder(e.currentTarget.getAttribute("id"))}
+                        >
                           {border}
-                        </p>
+                        </button>
                       ))}
                     </BorderCountries>
                   </InformationContainer>

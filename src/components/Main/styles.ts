@@ -276,12 +276,18 @@ export const BorderCountries = styled.div`
     white-space: nowrap;
   }
 
-  p {
-      margin-right: 15px;
-      background-color: ${(props) => props.theme.color.primary};
-      box-shadow: 0 1px 5px ${(props) => props.theme.color.shadow};
-      border-radius: 5px;
-      padding: 0 10px;
-      margin-bottom: 10px;
+  button {
+    margin-right: 15px;
+    background-color: ${(props) => props.theme.color.primary};
+    box-shadow: 0 1px 5px ${(props) => props.theme.color.shadow};
+    color: ${(props) => props.theme.color.text};
+    border: 0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    :hover {
+      background: ${(props) => props.theme.color.shadow};
     }
+  }
 `;
